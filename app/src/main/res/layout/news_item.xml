@@ -6,67 +6,66 @@
 
     <TextView
         android:id="@+id/title_text_view"
-        android:layout_marginBottom="2dp"
         style="@style/list_items_style"
+        android:layout_marginBottom="2dp"
         android:maxLines="2"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/black"
         tools:text="US President to meet tech firms including Apple, Facebook and Google" />
 
     <TextView
-        android:layout_marginRight="4dp"
-        android:layout_below="@id/title_text_view"
         android:id="@+id/section_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/section_id"
-        />
+        android:layout_below="@id/title_text_view"
+        android:layout_marginRight="4dp"
+        android:text="@string/section_id" />
 
     <TextView
-        android:layout_below="@id/title_text_view"
-        android:layout_toRightOf="@id/section_id"
         android:id="@+id/section_text_view"
         style="@style/list_items_style"
+        android:layout_below="@id/title_text_view"
+        android:layout_toRightOf="@id/section_id"
         android:maxLines="1"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textColor="@android:color/darker_gray"
         tools:text="Politics" />
 
     <TextView
-        android:layout_marginRight="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_below="@id/title_text_view"
-        android:layout_toRightOf="@id/section_text_view"
         android:id="@+id/author_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/title_text_view"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_toRightOf="@id/section_text_view"
         android:text="@string/author_id" />
 
     <TextView
-        android:layout_toRightOf="@id/author_id"
-        android:layout_below="@id/title_text_view"
         android:id="@+id/author_text_view"
         style="@style/list_items_style"
+        android:layout_below="@id/title_text_view"
+        android:layout_toRightOf="@id/author_id"
         android:maxLines="1"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textColor="@android:color/darker_gray"
         tools:text="John Doe" />
 
     <TextView
-        android:layout_marginRight="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_below="@id/title_text_view"
-        android:layout_toRightOf="@id/author_text_view"
         android:id="@+id/date_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/title_text_view"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_toRightOf="@id/author_text_view"
         android:text="@string/date_id" />
 
     <TextView
-        android:layout_toRightOf="@id/date_id"
-        android:layout_below="@id/title_text_view"
         android:id="@+id/date_text_view"
         style="@style/list_items_style"
+        android:layout_below="@id/title_text_view"
+        android:layout_toRightOf="@id/date_id"
         android:maxLines="1"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textColor="@android:color/darker_gray"

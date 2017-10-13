@@ -7,8 +7,19 @@ import android.os.Parcelable;
  * Created by Rean on 10/13/2017.
  */
 
-public class News implements Parcelable{
+public class News implements Parcelable {
 
+    public static final Creator<News> CREATOR = new Creator<News>() {
+        @Override
+        public News createFromParcel(Parcel in) {
+            return new News(in);
+        }
+
+        @Override
+        public News[] newArray(int size) {
+            return new News[size];
+        }
+    };
     private String mTitle;
     private String mSectionName;
     private String mDate;
@@ -28,18 +39,6 @@ public class News implements Parcelable{
         mDate = in.readString();
         mUrl = in.readString();
     }
-
-    public static final Creator<News> CREATOR = new Creator<News>() {
-        @Override
-        public News createFromParcel(Parcel in) {
-            return new News(in);
-        }
-
-        @Override
-        public News[] newArray(int size) {
-            return new News[size];
-        }
-    };
 
     public String getTitle() {
         return mTitle;
