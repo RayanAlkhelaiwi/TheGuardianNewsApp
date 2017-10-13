@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TheGuardian</string>
+    <string name="empty_view_text">Hmmm, no news for today! Either it\'s end of the world! or the search term wasn\'t right</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="section_id">Section:</string>
+    <string name="author_id">By:</string>
+    <string name="date_id">Date:</string>
+    <string name="the_guardian_title">TheGuardian</string>
+    <string name="no_author">Not Specified</string>
+</resources>
