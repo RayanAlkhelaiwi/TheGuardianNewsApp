@@ -40,17 +40,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
      * JSON response for the TheGuardian news API
      */
     private static final String THE_GUARDIAN_API_URL = "https://content.guardianapis.com/search?api-key=test&q=";
-    private ListView newsListView;
     private View progressBar;
     private String theGuardianJSONurl;
     private EditText editText;
-    private Button searchButton;
     private List<News> newsList;
     private TextView emptyTextView;
     private InputMethodManager inputManager;
     private ConnectivityManager cm;
     private NetworkInfo activeNetwork;
     private LoaderManager loaderManager;
+
     /**
      * Adapter for the list of news articles
      */
@@ -64,12 +63,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         //To remove the title text in the action bar
         setTitle("");
 
+        //Display theGuardian text logo in the action bar
         Drawable drawableFetcher = getResources().getDrawable(R.drawable.theguardian);
         Bitmap bitmapDrawable = ((BitmapDrawable) drawableFetcher).getBitmap();
         Drawable theGuardianLogo = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapDrawable, 880, 185, true));
 
         try {
-
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setLogo(theGuardianLogo);
             getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -95,9 +94,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         editText = (EditText) findViewById(R.id.search_edit_text);
 
         // Find a reference to the ListView in the layout
-        newsListView = (ListView) findViewById(R.id.list);
+        ListView newsListView = (ListView) findViewById(R.id.list);
 
-        //Assigning List to an ArrayList of tybe News
+        //Assigning List to an ArrayList of type News
         newsList = new ArrayList<News>();
 
         // Create a new adapter that takes an empty list of News as input
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         newsListView.setEmptyView(findViewById(android.R.id.empty));
 
         //Set the search button to be clickable to do the search for the entered word
-        searchButton = (Button) findViewById(R.id.search_button);
+        Button searchButton = (Button) findViewById(R.id.search_button);
 
         // Get a reference to the LoaderManager, in order to interact with loaders.
         loaderManager = getLoaderManager();
@@ -152,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                         // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                         // because this activity implements the LoaderCallbacks interface).
+                        emptyTextView.setVisibility(View.INVISIBLE);
                         loaderManager.restartLoader(NEWS_LOADER_ID, null, MainActivity.this);
                     } else {
 
@@ -209,7 +209,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // If there is a valid list of news, then add them to the adapter's data set. This will trigger the ListView to update.
         if (data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
-            emptyTextView.setText(null);
         }
     }
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class NewsAdapter extends ArrayAdapter<News> {
 
-    private final String AUTHOR_SEPERATOR = " | ";
+    private final String AUTHOR_SEPERATOR = "|";
     private final String DATE_SEPERATOR = "T";
     private String title;
     private String author;
@@ -38,19 +38,21 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         News newsAdapterItem = getItem(position);
 
+        //If the title of the news article has has an author's name, it will split it and assign each value to its corresponded variable
         String newsTitle = newsAdapterItem.getTitle();
         if (newsTitle.contains(AUTHOR_SEPERATOR)) {
-            String[] authorTitleArray = newsTitle.split(AUTHOR_SEPERATOR);
+            String[] authorTitleArray = newsTitle.split("\\" +AUTHOR_SEPERATOR);
             title = authorTitleArray[0];
             author = authorTitleArray[1];
         } else {
-            author = getContext().getString(R.string.no_author);
             title = newsTitle;
+            author = getContext().getString(R.string.no_author);
         }
 
+        //It will split the time from the date and display only the date in the screen
         String newsDate = newsAdapterItem.getDate();
         if (newsDate.contains(DATE_SEPERATOR)) {
-            String[] dateArray = newsTitle.split(DATE_SEPERATOR);
+            String[] dateArray = newsDate.split(DATE_SEPERATOR);
             date = dateArray[0];
         } else {
             date = newsDate;
