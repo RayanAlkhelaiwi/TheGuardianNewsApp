@@ -21,9 +21,19 @@ public class News implements Parcelable {
         }
     };
     private String mTitle;
+    private String mAuthor;
     private String mSectionName;
     private String mDate;
     private String mUrl;
+
+    public News(String title, String author, String sectionName, String date, String url) {
+
+        mTitle = title;
+        mAuthor = author;
+        mSectionName = sectionName;
+        mDate = date;
+        mUrl = url;
+    }
 
     public News(String title, String sectionName, String date, String url) {
 
@@ -35,6 +45,7 @@ public class News implements Parcelable {
 
     protected News(Parcel in) {
         mTitle = in.readString();
+        mAuthor = in.readString();
         mSectionName = in.readString();
         mDate = in.readString();
         mUrl = in.readString();
@@ -42,6 +53,10 @@ public class News implements Parcelable {
 
     public String getTitle() {
         return mTitle;
+    }
+
+    public String getAuthor() {
+        return mAuthor;
     }
 
     public String getSectionName() {
@@ -64,6 +79,7 @@ public class News implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(mTitle);
+        dest.writeString(mAuthor);
         dest.writeString(mSectionName);
         dest.writeString(mDate);
         dest.writeString(mUrl);

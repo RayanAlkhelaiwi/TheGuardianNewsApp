@@ -153,13 +153,17 @@ public final class QueryUtils {
                 JSONObject currentNews = resultsArray.getJSONObject(i);
 
                 String title = currentNews.getString("webTitle");
+                String author = "";
+                if (currentNews.has("webAuthor")) {
+                    author = currentNews.getString("webAuthor");
+                }
                 String sectionName = currentNews.getString("sectionName");
                 String date = currentNews.getString("webPublicationDate");
                 String newsURL = currentNews.getString("webUrl");
 
                 // Create a new news object with the magnitude, location, time,
                 // and url from the JSON response.
-                news.add(new News(title, sectionName, date, newsURL));
+                news.add(new News(title, author, sectionName, date, newsURL));
             }
 
         } catch (JSONException e) {

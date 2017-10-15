@@ -177,7 +177,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 String newsURL = NewURL.getUrl();
                 Intent urlIntent = new Intent(Intent.ACTION_VIEW);
                 urlIntent.setData(Uri.parse(newsURL));
-                startActivity(urlIntent);
+
+                if (urlIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(urlIntent);
+                }
             }
         });
     }

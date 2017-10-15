@@ -44,6 +44,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
             String[] authorTitleArray = newsTitle.split("\\" +AUTHOR_SEPERATOR);
             title = authorTitleArray[0];
             author = authorTitleArray[1];
+
+        } else if (!(newsAdapterItem.getAuthor().equals("")) && newsAdapterItem.getAuthor() != null) {
+            title = newsTitle;
+            author = newsAdapterItem.getAuthor();
+
         } else {
             title = newsTitle;
             author = getContext().getString(R.string.no_author);
